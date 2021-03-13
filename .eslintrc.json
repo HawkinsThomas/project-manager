@@ -12,11 +12,13 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "import/prefer-default-export": "off",
+    "no-multiple-empty-lines": "off",
     "import/newline-after-import": ["error", { "count": 2 }],
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "max-len": [ 1, 132 ],
     "import/no-unresolved": "off",
     "import/extensions": "off",
-    "no-unused-expressions": ["warn", { "allowTernary": true }]
+    "no-unused-expressions": ["warn", { "allowTernary": true }],
+    "linebreak-style": "off"
   }
 }

@@ -9,7 +9,8 @@ const sagaMiddleWare = createSagaMiddleWare();
 const store = createStore(
   reducers,
   compose(
-    applyMiddleware(sagaMiddleWare)
-  ));
+    applyMiddleware(sagaMiddleWare),
+  ),
+);
 
 export default store;

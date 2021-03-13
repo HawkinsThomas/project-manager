@@ -1,3 +1,4 @@
-import Heading from "./component";
+import Heading from './component';
+
 
 export default Heading;

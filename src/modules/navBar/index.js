@@ -1,3 +1,4 @@
-import NavBar from "./component";
+import NavBar from './component';
+
 
 export default NavBar;

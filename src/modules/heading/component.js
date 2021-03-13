@@ -1,7 +1,13 @@
-const Heading = ({ title }) => {
-  return ( 
-    <h1>{title}</h1>
-   );
-}
- 
+import React from 'react';
+import { PropTypes } from 'prop-types';
+
+
+const Heading = ({ title }) => (
+  <h1>{title}</h1>
+);
+
+Heading.propTypes = {
+  title: PropTypes.string.isRequired,
+};
+
 export default Heading;
