@@ -2,16 +2,30 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 
 
-const Banner = ({ text, children }) => (
-  <div className="banner">
-    <h1>{ text }</h1>
-    { children }
-  </div>
-);
+const Banner = ({ heading, background, children }) => {
+  const styles = {};
+
+  if (background) {
+    styles.backgroundImage = background;
+  }
+
+  return (
+    <div className="banner" style={styles}>
+      <h1>{ heading }</h1>
+      { children }
+    </div>
+  );
+};
 
 Banner.propTypes = {
-  text: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
+  heading: PropTypes.string.isRequired,
+  background: PropTypes.string,
+  children: PropTypes.element,
+};
+
+Banner.defaultProps = {
+  background: '',
+  children: null,
 };
 
 export default Banner;
