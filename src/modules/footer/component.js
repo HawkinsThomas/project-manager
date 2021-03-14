@@ -2,14 +2,16 @@ import React from 'react';
 import { APP_NAME } from '../../constants';
 
 
-const Footer = () => (
-  <footer className="">
-    <span>
-      Copyright
-      { new Date().getFullYear() }
-      {APP_NAME}
-    </span>
-  </footer>
-);
+const Footer = () => {
+  const footNote = `Copyright ${new Date().getFullYear()} ${APP_NAME}`;
+
+  return (
+    <footer className="">
+      <span>
+        { footNote }
+      </span>
+    </footer>
+  );
+};
 
 export default Footer;
