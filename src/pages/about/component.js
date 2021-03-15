@@ -15,7 +15,9 @@ const About = () => {
       </Banner>
       <section>
         <h2>Sign Up</h2>
-        <SignupForm />
+        <div className="row py-2 items-left">
+          <SignupForm className="col-3 card p-2" />
+        </div>
       </section>
     </div>
   );

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { PropTypes } from 'prop-types';
+
 
 // Modules
 import CustomInputLabel from '../customInputLabel';
 import CustomInput from '../customInput';
 
 
-const SignupForm = () => {
+const SignupForm = ({ className }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,14 +22,21 @@ const SignupForm = () => {
     const checkPassword = password.length && (password === confirmPassword);
 
     if (checkName && checkEmail && checkPassword) {
-      console.log('Validated.');
-      // Submit form
+      const data = { name, email, password };
+
+      fetch('http://localhost:8000/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      }).then(() => {
+        console.log('Signup Successful');
+      });
     }
   };
 
   return (
-    <div className="form-card">
-      <h3>Sign Up</h3>
+    <div className={className}>
+      <h3 className="form-heading">Sign Up</h3>
       <form onSubmit={handleSubmit}>
         <CustomInputLabel label="name" title="Name">
           <CustomInput
@@ -59,6 +68,14 @@ const SignupForm = () => {
       </form>
     </div>
   );
+};
+
+SignupForm.propTypes = {
+  className: PropTypes.string,
+};
+
+SignupForm.defaultProps = {
+  className: '',
 };
 
 export default SignupForm;
