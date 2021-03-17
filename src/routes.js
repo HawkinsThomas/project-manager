@@ -10,7 +10,7 @@ import Signup from 'pages/sign-up';
 import Footer from 'modules/footer';
 import NavBar from 'modules/navBar';
 
-import store from './store';
+import store from 'store';
 
 
 
@@ -18,7 +18,7 @@ const Routes = (
   <Provider store={store}>
     <Router>
       <NavBar />
-      <main>
+      <main className="p-main py-10">
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />

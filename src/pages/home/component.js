@@ -6,7 +6,7 @@ import Heading from '../../modules/heading';
 const Home = () => (
   <div>
     <Heading title="Home" />
-    <Banner text="Heading 1">
+    <Banner heading="Heading 1">
       <Heading title="Heading 2" />
     </Banner>
   </div>
