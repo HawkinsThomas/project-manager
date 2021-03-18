@@ -1,5 +1,5 @@
 import React from 'react';
-import Heading from '../../modules/heading';
+import Heading from '../../modules/Heading';
 
 
 const Signup = () => (

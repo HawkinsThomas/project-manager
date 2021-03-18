@@ -1,0 +1,7 @@
+@media screen and (max-width: 1000px) {
+  .row:has([class*="col-md"]) { flex-wrap: wrap; }
+
+  .row [class*="col-md"] {
+    width: 100%;
+  }
+}

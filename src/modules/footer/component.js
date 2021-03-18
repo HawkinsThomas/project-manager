@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <footer>
-      <div className="row p-main py-1 bg-dark text-white">
+      <div className="row p-main py-1 bg-dark color-white">
         <div className="col-3">
           <h6>Row 1</h6>
         </div>
@@ -21,7 +21,7 @@ const Footer = () => {
           <h6>Row 4</h6>
         </div>
       </div>
-      <div className="row p-main py-1 bg-black text-light">
+      <div className="row p-main py-1 bg-black color-light">
         { footNote }
       </div>
     </footer>

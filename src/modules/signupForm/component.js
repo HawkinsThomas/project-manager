@@ -3,8 +3,8 @@ import { PropTypes } from 'prop-types';
 
 
 // Modules
-import CustomInputLabel from '../customInputLabel';
-import CustomInput from '../customInput';
+import CustomInputLabel from '../CustomInputLabel';
+import CustomInput from '../CustomInput';
 
 
 const SignupForm = ({ className }) => {
@@ -36,7 +36,7 @@ const SignupForm = ({ className }) => {
 
   return (
     <div className={className}>
-      <h3 className="form-heading">Sign Up</h3>
+      <h3 className="underline-heading">Sign Up</h3>
       <form onSubmit={handleSubmit}>
         <CustomInputLabel label="name" title="Name">
           <CustomInput
@@ -64,7 +64,7 @@ const SignupForm = ({ className }) => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </CustomInputLabel>
-        <input type="submit" value="Submit" className="button" />
+        <input type="submit" value="Submit" className="button-green" />
       </form>
     </div>
   );
