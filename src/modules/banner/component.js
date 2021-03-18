@@ -1,24 +1,17 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { StyledBackground, StyledContent } from './styledComponents';
 
 
-const Banner = ({ heading, background, children }) => {
-  const styles = {};
-
-  if (background) {
-    styles.backgroundImage = background;
-  }
-
-  return (
-    <div className="banner" style={styles}>
-      <h1>{ heading }</h1>
+const Banner = ({ background, children }) => (
+  <StyledBackground className="p-main row" background={background}>
+    <StyledContent className="col-md-4">
       { children }
-    </div>
-  );
-};
+    </StyledContent>
+  </StyledBackground>
+);
 
 Banner.propTypes = {
-  heading: PropTypes.string.isRequired,
   background: PropTypes.string,
   children: PropTypes.element,
 };

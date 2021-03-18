@@ -7,8 +7,8 @@ import Dashboard from 'pages/dashboard';
 import Home from 'pages/home';
 import Login from 'pages/log-in';
 import Signup from 'pages/sign-up';
-import Footer from 'modules/footer';
-import NavBar from 'modules/navBar';
+import Footer from 'modules/Footer';
+import Navbar from 'modules/Navbar';
 
 import store from 'store';
 
@@ -17,16 +17,14 @@ import store from 'store';
 const Routes = (
   <Provider store={store}>
     <Router>
-      <NavBar />
-      <main className="p-main py-10">
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/log-in" component={Login} />
-          <Route path="/sign-up" component={Signup} />
-        </Switch>
-      </main>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
+      </Switch>
       <Footer />
     </Router>
   </Provider>

@@ -1,13 +1,18 @@
 import React from 'react';
-import Banner from '../../modules/banner';
-import Heading from '../../modules/heading';
+import { Link } from 'react-router-dom';
+import background from 'img/city_banner.jpg';
+import Banner from 'modules/Banner';
 
 
 const Home = () => (
   <div>
-    <Heading title="Home" />
-    <Banner heading="Heading 1">
-      <Heading title="Heading 2" />
+    <Banner background={background}>
+      <h1>Welcome to Project Manager</h1>
+      <p>
+        A hobby project by Johnathan LeBlanc and Thomas Hawkins.&nbsp;
+        Designed for freelancers or business owners to help manage their lists of projects and clients.
+      </p>
+      <Link to="/signup" className="button-light">Get Started</Link>
     </Banner>
   </div>
 );
