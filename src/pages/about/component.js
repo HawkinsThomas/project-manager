@@ -2,8 +2,8 @@ import React from 'react';
 import background from 'img/city_banner.jpg';
 
 // Modules
-import Banner from '../../modules/Banner';
-import SignupForm from '../../modules/SignupForm';
+import Banner from 'modules/Banner';
+import SignupForm from 'modules/forms/SignupForm';
 
 
 const About = () => (

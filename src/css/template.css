@@ -393,3 +393,10 @@ form label input:focus {
   border-bottom: 2px solid var(--main-color-1-dark);
   padding-bottom: 10px;
 }
+
+/* Text */
+.focus-text {
+  font-size: 1.8rem;
+  border-left: 2px solid var(--main-color-1);
+  padding-left: 2em;
+}

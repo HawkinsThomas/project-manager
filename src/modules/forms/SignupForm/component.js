@@ -3,12 +3,12 @@ import { PropTypes } from 'prop-types';
 
 
 // Modules
-import CustomInputLabel from '../CustomInputLabel';
-import CustomInput from '../CustomInput';
+import CustomInputLabel from 'modules/forms/components/CustomInputLabel';
+import CustomInput from 'modules/forms/components/CustomInput';
 
 
 const SignupForm = ({ className }) => {
-  const [name, setName] = useState('');
+  const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -17,14 +17,18 @@ const SignupForm = ({ className }) => {
     e.preventDefault();
 
     // Basic form validation
-    const checkName = name.length >= 3;
+    const checkUserName = userName.length >= 3;
     const checkEmail = email.indexOf('@') > 0;
-    const checkPassword = password.length && (password === confirmPassword);
+    const checkPassword = (password.length > 3) && (password === confirmPassword);
 
-    if (checkName && checkEmail && checkPassword) {
-      const data = { name, email, password };
+    if (checkUserName && checkEmail && checkPassword) {
+      const data = {
+        userName,
+        password,
+        email,
+      };
 
-      fetch('http://localhost:8000/signup', {
+      fetch('http://localhost:8000/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -36,12 +40,12 @@ const SignupForm = ({ className }) => {
 
   return (
     <div className={className}>
-      <h3 className="underline-heading">Sign Up</h3>
+      <h3 className="underline-heading color-medium">Sign Up</h3>
       <form onSubmit={handleSubmit}>
-        <CustomInputLabel label="name" title="Name">
+        <CustomInputLabel label="userName" title="Username">
           <CustomInput
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
           />
         </CustomInputLabel>
         <CustomInputLabel label="email" title="Email">
