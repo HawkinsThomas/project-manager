@@ -27,7 +27,11 @@ const Dashboard = () => {
             { isPending && <p>Loading...</p>}
             { projects && projects.map((project) => (
               <div className="col-sm-6 mb-1" key={project.id}>
-                <RecentProject title={project.title} description={project.description} />
+                <RecentProject
+                  title={project.title}
+                  description={project.description}
+                  status={project.status}
+                />
               </div>
             ))}
           </div>
