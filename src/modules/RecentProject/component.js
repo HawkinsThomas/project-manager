@@ -15,7 +15,7 @@ const RecentProject = ({ title, description, status }) => (
       <b>Status: </b>
       { status }
     </p>
-    <Link to="/dashboard" className="button-green">View</Link>
+    <Link to="/dashboard" className="button-green d-inline-block">View</Link>
   </div>
 );
 

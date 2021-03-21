@@ -11,10 +11,12 @@ import background from 'img/city_banner.jpg';
 
 // Custom Hook
 import useFetch from 'customHooks/useFetch';
+import ProjectTable from 'modules/ProjectTable';
 
 
 const Dashboard = () => {
-  const { data: projects, isPending, error } = useFetch(`${SERVER}/projects`);
+  const url = `${SERVER}/projects`;
+  const { data: projects, isPending, error } = useFetch(url);
 
   return (
     <main>
@@ -37,6 +39,14 @@ const Dashboard = () => {
           </div>
         </>
       </Banner>
+      <div className="p-main row">
+        <div className="col-lg-8">
+          <ProjectTable
+            title="Projects"
+            url={url}
+          />
+        </div>
+      </div>
     </main>
   );
 };

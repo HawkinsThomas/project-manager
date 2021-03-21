@@ -24,6 +24,21 @@
       "addressProvince": "ON",
       "addressPostalCode": "K7M 9J0",
       "addressCountry": "Canada"
+    },
+    {
+      "id": 2,
+      "userID": 1,
+      "firstName": "John",
+      "lastName": "Smith",
+      "jobTitle": "Web Developer",
+      "company": "FakeCo",
+      "email": "john@fakeco.ca",
+      "phone": "613-440-4141",
+      "addressStreet": "22 Third Ave",
+      "addressCity": "Kingston",
+      "addressProvince": "ON",
+      "addressPostalCode": "K7M 9J0",
+      "addressCountry": "Canada"
     }
   ],
   "projects": [
@@ -38,7 +53,7 @@
     {
       "id": 2,
       "userID": 1,
-      "clientID": 1,
+      "clientID": 2,
       "title": "Project Manager",
       "description": "Build out the Project Manager web application.",
       "status": "INCOMPLETE"
@@ -69,6 +84,7 @@
       "projectID": 1,
       "clientID": 1,
       "date": "2021/03/09",
+      "status": "SENT",
       "totalBill": 100
     }
   ]
