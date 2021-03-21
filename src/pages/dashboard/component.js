@@ -30,6 +30,7 @@ const Dashboard = () => {
             { projects && projects.map((project) => (
               <div className="col-sm-6 mb-1" key={project.id}>
                 <RecentProject
+                  id={project.id}
                   title={project.title}
                   description={project.description}
                   status={project.status}
