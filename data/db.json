@@ -1,0 +1,75 @@
+{
+  "users": [
+    {
+      "id" : 1,
+      "username" : "JohnL",
+      "password" : "asd",
+      "firstName" : "John",
+      "lastName" : "LeBlanc",
+      "email" : "john.leblanc03@gmail.com"
+    }
+  ],
+  "clients" : [
+    {
+      "id" : 1,
+      "userID" : 1,
+      "firstName" : "Jane",
+      "lastName" : "Doe",
+      "jobTitle" : "CEO",
+      "company" : "RealCo",
+      "email" : "jane@realco.ca",
+      "phone" : "613-440-4141",
+      "addressStreet" : "22 Third Ave",
+      "addressCity" : "Kingston",
+      "addressProvince" : "ON",
+      "addressPostalCode" : "K7M 9J0",
+      "addressCountry" : "Canada"
+    }
+  ],
+  "projects": [
+    {
+      "id" : 1,
+      "userID" : 1,
+      "clientID" : 1,
+      "title" : "Database Structure",
+      "description": "Create a structure for the database.",
+      "status" : "COMPLETE"
+    },
+    {
+      "id" : 2,
+      "userID" : 1,
+      "clientID" : 1,
+      "title" : "Project Manager",
+      "description": "Build out the Project Manager web application.",
+      "status" : "INCOMPLETE"
+    }
+  ],
+  "tasks" : [
+    {
+      "id" : 1,
+      "projectID" : 2,
+      "title" : "Table",
+      "description" : "Create a table component.",
+      "status" : "INCOMPLETE",
+      "chargeType" : "HOURLY",
+      "rate" : 75.00
+    }
+  ],
+  "time-logs" : [
+    {
+      "id" : 1,
+      "taskID" : 1,
+      "startTime" : "2021/03/09/1309",
+      "endTime" : ""
+    }
+  ],
+  "invoices" : [
+    {
+      "id" : 1,
+      "projectID" : 1,
+      "clientID" : 1,
+      "date" : "2021/03/09",
+      "totalBill" : 100
+    }
+  ]
+}
