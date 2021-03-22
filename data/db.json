@@ -39,6 +39,34 @@
       "addressProvince": "ON",
       "addressPostalCode": "K7M 9J0",
       "addressCountry": "Canada"
+    },
+    {
+      "userID": 1,
+      "firstName": "Adam",
+      "lastName": "Savage",
+      "jobTitle": "Inventor",
+      "email": "adam.savaga@mythbustors.com",
+      "phone": "---",
+      "company": "Myth Busters",
+      "addressStreet": "12 Main",
+      "addressPostalCode": "K1B 9B0",
+      "addressProvince": "NY",
+      "addressCountry": "United States",
+      "id": 3
+    },
+    {
+      "userID": 1,
+      "firstName": "Zagreus",
+      "lastName": "Son of Hades",
+      "jobTitle": "Prince",
+      "email": "zag@hotmail.com",
+      "phone": "666-666-6661",
+      "company": "Underworld",
+      "addressStreet": "House of Hades",
+      "addressPostalCode": "H3L 1O0",
+      "addressProvince": "H",
+      "addressCountry": "None",
+      "id": 4
     }
   ],
   "projects": [

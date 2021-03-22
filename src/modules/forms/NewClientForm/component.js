@@ -7,7 +7,7 @@ import CustomInputLabel from 'modules/forms/components/CustomInputLabel';
 import CustomInput from 'modules/forms/components/CustomInput';
 
 
-const SignupForm = ({ className }) => {
+const NewClientForm = ({ userID, className }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [jobTitle, setJobTitle] = useState('');
@@ -15,6 +15,7 @@ const SignupForm = ({ className }) => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [addressStreet, setAddressStreet] = useState('');
+  const [addressCity, setAddressCity] = useState('');
   const [addressProvince, setAddressProvince] = useState('');
   const [addressPostalCode, setAddressPostalCode] = useState('');
   const [addressCountry, setAddressCountry] = useState('');
@@ -29,6 +30,7 @@ const SignupForm = ({ className }) => {
 
     if (checkFirstName && checkLastName && checkEmail) {
       const data = {
+        userID,
         firstName,
         lastName,
         jobTitle,
@@ -36,6 +38,7 @@ const SignupForm = ({ className }) => {
         phone,
         company,
         addressStreet,
+        addressCity,
         addressPostalCode,
         addressProvince,
         addressCountry,
@@ -53,7 +56,6 @@ const SignupForm = ({ className }) => {
 
   return (
     <div className={className}>
-      <h3 className="underline-heading color-medium">Sign Up</h3>
       <form onSubmit={handleSubmit}>
         <b>Client Info</b>
         <CustomInputLabel label="firstName" title="First Name">
@@ -99,6 +101,12 @@ const SignupForm = ({ className }) => {
             onChange={(e) => setAddressStreet(e.target.value)}
           />
         </CustomInputLabel>
+        <CustomInputLabel label="addressCity" title="City">
+          <CustomInput
+            value={addressStreet}
+            onChange={(e) => setAddressCity(e.target.value)}
+          />
+        </CustomInputLabel>
         <CustomInputLabel label="addressPostalCode" title="Postal Code">
           <CustomInput
             value={addressPostalCode}
@@ -123,12 +131,13 @@ const SignupForm = ({ className }) => {
   );
 };
 
-SignupForm.propTypes = {
+NewClientForm.propTypes = {
+  userID: PropTypes.number.isRequired,
   className: PropTypes.string,
 };
 
-SignupForm.defaultProps = {
+NewClientForm.defaultProps = {
   className: '',
 };
 
-export default SignupForm;
+export default NewClientForm;

@@ -42,8 +42,7 @@
   background-color: var(--main-color-1);
 }
 
-.button-green:hover,
-.button-green:focus {
+.button-green:hover {
   background-color: var(--main-color-1-dark);
 }
 
