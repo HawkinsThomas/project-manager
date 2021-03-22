@@ -6,7 +6,7 @@ export const StyledBackground = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 500px;
+  height: ${(props) => props.height};
   position: relative;
   background-image: url(${(props) => props.background});
   background-position: center;
