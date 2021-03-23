@@ -8,6 +8,7 @@ import Navbar from 'modules/Navbar';
 
 // Pages
 import About from 'pages/about';
+import Clients from 'pages/clients';
 import Dashboard from 'pages/dashboard';
 import Home from 'pages/home';
 import Login from 'pages/log-in';
@@ -17,7 +18,6 @@ import Project from 'pages/project';
 import store from 'store';
 
 
-
 const Routes = (
   <Provider store={store}>
     <Router>
@@ -25,6 +25,7 @@ const Routes = (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
+        <Route path="/clients" component={Clients} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
