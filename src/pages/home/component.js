@@ -12,7 +12,7 @@ const Home = () => (
         A hobby project by Johnathan LeBlanc and Thomas Hawkins.&nbsp;
         Designed for freelancers or business owners to help manage their lists of projects and clients.
       </p>
-      <Link to="/signup" className="button-light">Get Started</Link>
+      <Link to="/signup" className="button-white">Get Started</Link>
     </Banner>
   </div>
 );
