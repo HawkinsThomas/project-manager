@@ -2,13 +2,17 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
+// Modules
+import Footer from 'modules/Footer';
+import Navbar from 'modules/Navbar';
+
+// Pages
 import About from 'pages/about';
 import Dashboard from 'pages/dashboard';
 import Home from 'pages/home';
 import Login from 'pages/log-in';
 import Signup from 'pages/sign-up';
-import Footer from 'modules/Footer';
-import Navbar from 'modules/Navbar';
+import Project from 'pages/project';
 
 import store from 'store';
 
@@ -24,6 +28,7 @@ const Routes = (
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route path="/project/:id" component={Project} />
       </Switch>
       <Footer />
     </Router>

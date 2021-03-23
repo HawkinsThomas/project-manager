@@ -36,7 +36,7 @@ const Row = ({
     <div>
       <button
         type="button"
-        className="button-light row w-100"
+        className="row-button row w-100"
         onClick={handleClick}
       >
         <div className="col-6 text-left">{ title }</div>
@@ -48,7 +48,7 @@ const Row = ({
             <div className="mb-2">
               <h4 className="mt-0">Description</h4>
               <p>{ description }</p>
-              <Link to="/dashboard" className="link-color">View Project Tasks</Link>
+              <Link to={`/project/${id}`} className="link-color">View Project Tasks</Link>
             </div>
             <div>
               <h4 className="mt-0">Invoice Status</h4>

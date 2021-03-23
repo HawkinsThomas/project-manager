@@ -48,7 +48,8 @@
       "clientID": 1,
       "title": "Database Structure",
       "description": "Create a structure for the database.",
-      "status": "COMPLETE"
+      "status": "COMPLETE",
+      "startTime": "2021/03/01/1200"
     },
     {
       "id": 2,
@@ -56,7 +57,8 @@
       "clientID": 2,
       "title": "Project Manager",
       "description": "Build out the Project Manager web application.",
-      "status": "INCOMPLETE"
+      "status": "INCOMPLETE",
+      "startTime": "2021/03/01/1200"
     }
   ],
   "tasks": [
