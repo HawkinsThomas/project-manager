@@ -1,4 +1,6 @@
+import { connect } from 'react-redux';
 import ClientList from './component';
+import { mapStateToProps } from './redux';
 
 
-export default ClientList;
+export default connect(mapStateToProps)(ClientList);
