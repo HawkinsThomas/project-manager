@@ -13,7 +13,7 @@ const Banner = ({ background, height, children }) => (
 
 Banner.propTypes = {
   background: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.arrayOf(PropTypes.element),
   height: PropTypes.string,
 };
 

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addClient } from 'commonReducers/clients/clientSlice';
 import { PropTypes } from 'prop-types';
 
 
@@ -19,6 +21,8 @@ const NewClientForm = ({ userID, className }) => {
   const [addressProvince, setAddressProvince] = useState('');
   const [addressPostalCode, setAddressPostalCode] = useState('');
   const [addressCountry, setAddressCountry] = useState('');
+
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,13 +48,7 @@ const NewClientForm = ({ userID, className }) => {
         addressCountry,
       };
 
-      fetch('http://localhost:8000/clients', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      }).then(() => {
-        console.log('Signup Successful');
-      });
+      dispatch(addClient(data));
     }
   };
 
@@ -103,7 +101,7 @@ const NewClientForm = ({ userID, className }) => {
         </CustomInputLabel>
         <CustomInputLabel label="addressCity" title="City">
           <CustomInput
-            value={addressStreet}
+            value={addressCity}
             onChange={(e) => setAddressCity(e.target.value)}
           />
         </CustomInputLabel>

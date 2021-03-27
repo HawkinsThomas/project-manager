@@ -1,22 +1,20 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
-import { SERVER } from 'constants.js';
-
-// Custom Hook
-import useFetch from 'customHooks/useFetch';
+import { useSelector } from 'react-redux';
 
 // Components
 import Row from './Row';
 
 
-const ClientTable = ({ userID }) => {
-  const { data: rows, isPending, error } = useFetch(`${SERVER}/clients?userID=${userID}`);
+const ClientTable = () => {
+  const rows = useSelector((state) => state.clients.entities);
+  const isPending = useSelector((state) => state.clients.loading);
+
+  const compare = (a, b) => a.lastName.localeCompare(b.lastName);
 
   return (
     <div>
-      { error && <p>{error}</p>}
       { isPending && <p>Loading...</p>}
-      { rows && rows.map((row) => (
+      { rows && rows.slice().sort(compare).map((row) => (
         <Row
           firstName={row.firstName}
           lastName={row.lastName}
@@ -34,10 +32,6 @@ const ClientTable = ({ userID }) => {
       ))}
     </div>
   );
-};
-
-ClientTable.propTypes = {
-  userID: PropTypes.string.isRequired,
 };
 
 export default ClientTable;

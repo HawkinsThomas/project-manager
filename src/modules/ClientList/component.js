@@ -1,16 +1,12 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchClientsById } from 'features/clients/clientSlice';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 
 const ClientList = () => {
   const clientList = useSelector((state) => state.clients.entities);
   const isPending = useSelector((state) => state.clients.loading);
-  const dispatch = useDispatch();
+
   const compare = (a, b) => a.lastName.localeCompare(b.lastName);
-
-  useEffect(() => dispatch(fetchClientsById(1)), [dispatch]);
-
 
   return (
     <div>
