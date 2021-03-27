@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
+
 // Modules
 import Footer from 'modules/Footer';
 import Navbar from 'modules/Navbar';
@@ -15,7 +16,8 @@ import Login from 'pages/log-in';
 import Signup from 'pages/sign-up';
 import Project from 'pages/project';
 
-import store from 'store';
+// Store
+import store from './app/store';
 
 
 const Routes = (

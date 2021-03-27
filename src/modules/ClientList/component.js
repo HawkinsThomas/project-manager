@@ -1,40 +1,27 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchClientsById } from 'features/clients/clientSlice';
 
 
-const ClientList = ({ clientList, clientListIsLoading, clientListErrorMessage }) => {
+const ClientList = () => {
+  const clientList = useSelector((state) => state.clients.entities);
+  const isPending = useSelector((state) => state.clients.loading);
+  const dispatch = useDispatch();
   const compare = (a, b) => a.lastName.localeCompare(b.lastName);
 
-  if (clientListIsLoading) {
-    return (
-      <div>
-        <p>Loading clients...</p>
-      </div>
-    );
-  }
+  useEffect(() => dispatch(fetchClientsById(1)), [dispatch]);
+
+
   return (
     <div>
-      {
-        clientListErrorMessage
-          ? <p>{clientListErrorMessage}</p>
-          : clientList && clientList.sort(compare).map((client) => (
-            <div className="row-button text-left">
-              {`${client.lastName}, ${client.firstName}`}
-            </div>
-          ))
-      }
+      {isPending && <p>Loading...</p>}
+      {clientList && clientList.slice().sort(compare).map((client) => (
+        <div className="row-button text-left" key={client.id}>
+          {`${client.lastName}, ${client.firstName}`}
+        </div>
+      ))}
     </div>
   );
-};
-
-ClientList.propTypes = {
-  clientList: PropTypes.arrayOf([]).isRequired,
-  clientListIsLoading: PropTypes.bool.isRequired,
-  clientListErrorMessage: PropTypes.string,
-};
-
-ClientList.defaultProps = {
-  clientListErrorMessage: null,
 };
 
 export default ClientList;

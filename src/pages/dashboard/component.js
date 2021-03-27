@@ -1,5 +1,4 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { SERVER } from 'constants.js';
 
@@ -15,8 +14,7 @@ import background from 'img/city_banner.jpg';
 // Grab project list here and make available through Redux
 
 
-const Dashboard = ({ userID, getClientList }) => {
-  getClientList(userID);
+const Dashboard = () => {
   const url = `${SERVER}/projects?status=INCOMPLETE`;
 
   return (
@@ -56,11 +54,6 @@ const Dashboard = ({ userID, getClientList }) => {
       </div>
     </main>
   );
-};
-
-Dashboard.propTypes = {
-  userID: PropTypes.number.isRequired,
-  getClientList: PropTypes.func.isRequired,
 };
 
 export default Dashboard;
