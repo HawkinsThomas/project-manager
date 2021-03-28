@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { SERVER } from 'constants.js';
 
 // Components
 import Heading from 'modules/Heading';
@@ -16,7 +15,6 @@ import background from 'img/city_banner.jpg';
 
 
 const Dashboard = () => {
-  const url = `${SERVER}/projects?status=INCOMPLETE`;
   const clientCount = useSelector((state) => state.clients.entities.length);
 
   return (
@@ -38,10 +36,8 @@ const Dashboard = () => {
       </Banner>
       <div className="p-main row">
         <div className="col-lg-8">
-          <ProjectTable
-            title="Current Projects"
-            url={url}
-          />
+          <h3>Projects</h3>
+          <ProjectTable />
           <br />
           <Link to="/projects" className="link-color">View all projects</Link>
         </div>

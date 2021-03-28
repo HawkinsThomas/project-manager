@@ -3,7 +3,7 @@ import sources from 'api/sources';
 
 
 export const fetchClientsById = createAsyncThunk(
-  'clients/fetchClientsStatus',
+  'clients/fetchClientsById',
   async (userID) => {
     const response = await sources.clientList.get(userID);
     return response.json();
@@ -11,7 +11,7 @@ export const fetchClientsById = createAsyncThunk(
 );
 
 export const addClient = createAsyncThunk(
-  'clients/getClients',
+  'clients/addClient',
   async (data) => {
     const response = await sources.clientList.post(data);
     return response;

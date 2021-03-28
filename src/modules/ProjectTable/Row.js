@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
-import { SERVER } from 'constants.js';
-
-// Custom Hooks
-import useFetch from 'customHooks/useFetch';
 
 
 const Row = ({
@@ -14,19 +11,9 @@ const Row = ({
   clientID,
   id,
 }) => {
+  const client = useSelector((state) => state.clients.entities.filter((c) => c.id === clientID)[0]);
+
   const [expand, setExpand] = useState(false);
-
-  const {
-    data: client,
-    isPending: clientPending,
-    error: clientError,
-  } = useFetch(`${SERVER}/clients?id=${clientID}`);
-
-  const {
-    data: invoice,
-    isPending: invoicePending,
-    error: invoiceError,
-  } = useFetch(`${SERVER}/invoices?projectId=${id}`);
 
   const handleClick = () => {
     setExpand(!expand);
@@ -50,31 +37,19 @@ const Row = ({
               <p>{ description }</p>
               <Link to={`/project/${id}`} className="link-color">View Project Tasks</Link>
             </div>
-            <div>
-              <h4 className="mt-0">Invoice Status</h4>
-              { invoicePending && <p>Loading...</p>}
-              { invoiceError && <p>Could not fetch invoice.</p>}
-              { invoice && (
-                <div>
-                  {invoice[0].status}
-                </div>
-              )}
-            </div>
           </div>
           <div className="col-md-4 bd-0 bdl-1 bd-solid bd-light pl-2">
             <h4 className="mt-0">Client</h4>
-            { clientPending && <p>Loading...</p>}
-            { clientError && <p>Could not fetch client.</p>}
             { client && (
               <div>
                 <p>
-                  {`${client[0].firstName} ${client[0].lastName}`}
+                  {`${client.firstName} ${client.lastName}`}
                   <br />
-                  {`${client[0].jobTitle}, ${client[0].company}`}
+                  {`${client.jobTitle}, ${client.company}`}
                   <br />
-                  {`Phone: ${client[0].phone}`}
+                  {`Phone: ${client.phone}`}
                   <br />
-                  {`Email: ${client[0].email}`}
+                  {`Email: ${client.email}`}
                 </p>
                 <Link to="/dashboard" className="link-color">Full Contact Details</Link>
               </div>

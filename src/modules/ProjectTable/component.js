@@ -1,20 +1,16 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
-
-// Custom Hook
-import useFetch from 'customHooks/useFetch';
+import { useSelector } from 'react-redux';
 
 // Components
 import Row from './Row';
 
 
-const ProjectTable = ({ title, url }) => {
-  const { data: rows, isPending, error } = useFetch(url);
+const ProjectTable = () => {
+  const rows = useSelector((state) => state.projects.entities);
+  const isPending = useSelector((state) => state.projects.loading);
 
   return (
     <div>
-      <h3>{ title }</h3>
-      { error && <p>{error}</p>}
       { isPending && <p>Loading...</p>}
       { rows && rows.map((row) => (
         <Row
@@ -28,11 +24,6 @@ const ProjectTable = ({ title, url }) => {
       ))}
     </div>
   );
-};
-
-ProjectTable.propTypes = {
-  title: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
 };
 
 export default ProjectTable;

@@ -1,9 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { SERVER } from 'constants.js';
-
-// Custom Hooks
-import useFetch from 'customHooks/useFetch';
 
 // Modules
 import Heading from 'modules/Heading';
@@ -14,28 +11,22 @@ import Client from './Client';
 const Project = () => {
   const { id } = useParams();
 
-  const {
-    data: projectData,
-    isPending: projectPending,
-    error: projectError,
-  } = useFetch(`${SERVER}/projects?id=${id}`);
+  const projectData = useSelector((state) => state.projects.entities.filter((p) => p.id === Number(id))[0]);
 
   return (
     <div>
-      {projectPending && <p>Loading...</p>}
-      {projectError && <p>Could not fetch project data.</p>}
       {projectData && (
         <div>
-          <Heading title={projectData[0].title} />
+          <Heading title={projectData.title} />
           <div className="row p-main">
             <div className="col-md-8">
               <div className="row p-1 mb-2 bg-light">
-                <span className="col-6">{`Progress: ${projectData[0].status}`}</span>
-                <span className="col-6 text-right">{`Project Started: ${projectData[0].startTime}`}</span>
+                <span className="col-6">{`Progress: ${projectData.status}`}</span>
+                <span className="col-6 text-right">{`Project Started: ${projectData.startTime}`}</span>
               </div>
               <div className="pb-1 mb-1 bdb-1 bd-solid bd-light">
                 <h4 className="mt-0">Description</h4>
-                <p>{projectData[0].description}</p>
+                <p>{projectData.description}</p>
               </div>
               <div>
                 <h4 className="mt-0">Tasks</h4>
@@ -44,7 +35,7 @@ const Project = () => {
             </div>
             <div className="col-md-4">
               <div className="pl-2 bdl-1 bd-solid bd-light">
-                <Client clientID={projectData[0].clientID} />
+                <Client clientID={projectData.clientID} />
               </div>
             </div>
           </div>
