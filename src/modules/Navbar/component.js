@@ -1,37 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { APP_NAME } from 'constants.js';
+import { StyledComponent } from './styledComponent';
 
 
 const Navbar = () => (
-  <header className="px-3 py-1 text-dark bg-light">
-    <nav className="row h-rem-5">
-      <div className="row col-md-6 items-left align-center text-large b-600">
+  <StyledComponent>
+    <nav>
+      <div className="logo">
         <span>
           {APP_NAME}
         </span>
       </div>
-      <div className="col-md-6">
-        <ul className="row nav h-100 align-center items-right color-medium">
-          <li className="h-100 px-1 mx-1">
+      <div className="navigation">
+        <ul>
+          <li>
             <Link to="/">Home</Link>
           </li>
-          <li className="h-100 px-1 mx-1">
+          <li>
             <Link to="/about">About</Link>
           </li>
-          <li className="h-100 px-1 mx-1">
+          <li>
             <Link to="/dashboard">Dashboard</Link>
           </li>
-          <li className="h-100 px-1 mx-1">
+          <li>
             <Link to="/login">Login</Link>
           </li>
-          <li className="h-100 px-1 mx-1">
+          <li>
             <Link to="/signup">Sign up</Link>
           </li>
         </ul>
       </div>
     </nav>
-  </header>
+  </StyledComponent>
 );
 
 export default Navbar;

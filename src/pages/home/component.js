@@ -9,10 +9,10 @@ const Home = () => (
     <Banner background={background}>
       <h1>Welcome to Project Manager</h1>
       <p>
-        A hobby project by Johnathan LeBlanc and Thomas Hawkins.&nbsp;
+        A hobby project by Johnathan LeBlanc and Thomas Hawkins.
         Designed for freelancers or business owners to help manage their lists of projects and clients.
       </p>
-      <Link to="/signup" className="button-white">Get Started</Link>
+      <Link to="/signup" className="button">Get Started</Link>
     </Banner>
   </div>
 );
