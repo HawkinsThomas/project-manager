@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 
+import { StyledRow } from './StyledRow';
+
 
 const Row = ({
   title,
@@ -20,26 +22,22 @@ const Row = ({
   };
 
   return (
-    <div>
-      <button
-        type="button"
-        className="row-button row w-100"
-        onClick={handleClick}
-      >
-        <div className="col-6 text-left">{ title }</div>
-        <div className="col-6 text-right">{ status }</div>
+    <StyledRow>
+      <button type="button" onClick={handleClick}>
+        <span>{ title }</span>
+        <span>{ status }</span>
       </button>
       { expand && (
-        <div className="row p-2">
-          <div className="col-md-8">
-            <div className="mb-2">
-              <h4 className="mt-0">Description</h4>
+        <div>
+          <div>
+            <div>
+              <h4>Description</h4>
               <p>{ description }</p>
-              <Link to={`/project/${id}`} className="link-color">View Project Tasks</Link>
+              <Link to={`/project/${id}`}>View Project Tasks</Link>
             </div>
           </div>
-          <div className="col-md-4 bd-0 bdl-1 bd-solid bd-light pl-2">
-            <h4 className="mt-0">Client</h4>
+          <div>
+            <h4>Client</h4>
             { client && (
               <div>
                 <p>
@@ -51,13 +49,13 @@ const Row = ({
                   <br />
                   {`Email: ${client.email}`}
                 </p>
-                <Link to="/dashboard" className="link-color">Full Contact Details</Link>
+                <Link to="/dashboard">Full Contact Details</Link>
               </div>
             )}
           </div>
         </div>
       )}
-    </div>
+    </StyledRow>
   );
 };
 
