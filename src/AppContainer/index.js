@@ -22,7 +22,11 @@ const AppContainer = ({ children }) => {
 };
 
 AppContainer.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  children: PropTypes.arrayOf(PropTypes.element),
+};
+
+AppContainer.defaultProps = {
+  children: [],
 };
 
 export default AppContainer;

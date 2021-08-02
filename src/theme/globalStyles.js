@@ -27,6 +27,17 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
+  h1,h2,h3,h4,h5,h6 {
+    margin-top: 0%;
+  }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.8rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.2rem; }
+  h5 { font-size: 1rem; }
+  h6 { font-size: 0.8rem; }
+
   img {
     width: 100%;
     height: auto;

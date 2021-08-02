@@ -11,6 +11,8 @@ import ClientList from 'modules/ClientList';
 // Image
 import background from 'img/city_banner.jpg';
 
+import { StyledComponent } from './styledComponent';
+
 // Grab project list here and make available through Redux
 
 
@@ -18,9 +20,9 @@ const Dashboard = () => {
   const clientCount = useSelector((state) => state.clients.entities.length);
 
   return (
-    <main>
-      <Heading title="Dashboard" />
-      <Banner background={background}>
+    <StyledComponent>
+      <Heading title="Dashboard" className="heading" />
+      <Banner background={background} className="banner">
         <h1>Welcome</h1>
         <p>
           <b>Active Projects: </b>
@@ -29,26 +31,22 @@ const Dashboard = () => {
           <b>Clients: </b>
           {clientCount}
         </p>
-        <div className="row items-left">
-          <Link to="/dashboard" className="button-white mr-1">View all projects</Link>
-          <Link to="/clients" className="button-white">View all clients</Link>
+        <div className="quick-links">
+          <Link to="/dashboard" className="button">View all projects</Link>
+          <Link to="/clients" className="button">View all clients</Link>
         </div>
       </Banner>
-      <div className="p-main row">
-        <div className="col-lg-8">
-          <h3>Projects</h3>
-          <ProjectTable />
-          <br />
-          <Link to="/projects" className="link-color">View all projects</Link>
-        </div>
-        <div className="col-lg-4">
-          <div className="px-2 bdl-1 bd-solid bd-light">
-            <h3>Client List</h3>
-            <ClientList />
-          </div>
-        </div>
-      </div>
-    </main>
+      <section>
+        <h3>Projects</h3>
+        <ProjectTable />
+        <br />
+        <Link to="/projects" className="link-color">View all projects</Link>
+      </section>
+      <aside>
+        <h3>Client List</h3>
+        <ClientList />
+      </aside>
+    </StyledComponent>
   );
 };
 

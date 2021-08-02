@@ -1,13 +1,19 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { StyledComponent } from './styledComponent';
 
 
-const Heading = ({ title }) => (
-  <h1 className="p-main m-0 bg-color-light text-dark">{title}</h1>
+const Heading = ({ title, className }) => (
+  <StyledComponent className={className}>{title}</StyledComponent>
 );
 
 Heading.propTypes = {
   title: PropTypes.string.isRequired,
+  className: PropTypes.string,
+};
+
+Heading.defaultProps = {
+  className: '',
 };
 
 export default Heading;

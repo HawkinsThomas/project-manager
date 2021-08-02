@@ -11,6 +11,12 @@ const Navbar = () => (
         <span>
           {APP_NAME}
         </span>
+        <div className="color-1" />
+        <div className="color-2" />
+        <div className="color-3" />
+        <div className="color-4" />
+        <div className="color-5" />
+        <div className="color-6" />
       </div>
       <div className="navigation">
         <ul>

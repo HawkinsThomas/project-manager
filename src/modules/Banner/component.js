@@ -3,9 +3,14 @@ import { PropTypes } from 'prop-types';
 import { StyledBackground, StyledContent } from './styledComponents';
 
 
-const Banner = ({ background, height, children }) => (
-  <StyledBackground className="p-main row" background={background} height={height}>
-    <StyledContent className="col-md-4">
+const Banner = ({
+  background,
+  height,
+  children,
+  className,
+}) => (
+  <StyledBackground className={className} background={background} height={height}>
+    <StyledContent>
       { children }
     </StyledContent>
   </StyledBackground>
@@ -13,14 +18,15 @@ const Banner = ({ background, height, children }) => (
 
 Banner.propTypes = {
   background: PropTypes.string,
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
   height: PropTypes.string,
+  className: PropTypes.string,
 };
 
 Banner.defaultProps = {
   background: '',
-  children: null,
   height: '500px',
+  className: '',
 };
 
 export default Banner;
