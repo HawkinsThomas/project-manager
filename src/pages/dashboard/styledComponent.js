@@ -16,11 +16,16 @@ export const StyledComponent = styled.main`
 
   section {
     grid-area: section;
-    padding: 2rem 0;
+    padding: 2rem 1rem 2rem 0;
   }
 
   aside {
     grid-area: aside;
     padding: 2rem 0;
+  }
+
+  .project-details {
+    display: flex;
+    justify-content: space-between;
   }
 `;

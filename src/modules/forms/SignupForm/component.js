@@ -32,9 +32,7 @@ const SignupForm = ({ className }) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
-      }).then(() => {
-        console.log('Signup Successful');
-      });
+      }).then(() => 'Signup Successful');
     }
   };
 

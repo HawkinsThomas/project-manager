@@ -21,9 +21,7 @@ const SignupForm = ({ className }) => {
     if (checkUserName && checkPassword) {
       fetch('http://localhost:8000/users', {
         method: 'GET',
-      }).then(() => {
-        console.log('Signup Successful');
-      });
+      }).then(() => 'Signup Successful');
     }
   };
 

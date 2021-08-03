@@ -44,14 +44,33 @@ const GlobalStyle = createGlobalStyle`
     display: none;
   }
 
-  .button {
-    color: white;
-    background-color: ${(props) => props.theme.color.primary};
+  .button, .button-light {
+    display: inline-block;
     padding: 0.5rem 1rem;
     border-radius: 3px;
 
+    :not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .button {
+    color: white;
+    background-color: ${(props) => props.theme.color.primary};
+
     :hover {
       background-color: ${(props) => props.theme.color.primaryLight};
+    }
+  }
+
+  .button-light {
+    color: ${(props) => props.theme.color.medium};
+    background-color: ${(props) => props.theme.color.light};
+    transition: color 0.25s;
+
+    :hover {
+      color: white;
+      background-color: ${(props) => props.theme.color.medium};
     }
   }
 `;
