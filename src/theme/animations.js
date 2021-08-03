@@ -29,7 +29,7 @@ const Animations = createGlobalStyle`
   .floatin {
     position: relative;
     bottom: 0;
-    animation: floatin 1s;
+    animation: floatin 0.25s ease-out;
   }
 `;
 

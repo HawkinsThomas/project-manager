@@ -8,7 +8,7 @@ const Signup = () => (
     <Heading title="Sign Up" />
     <div className="row">
       <div className="col-md-6 p-main">
-        <h2>Get Starter. It&apos;s Easy!</h2>
+        <h2>Get Started. It&apos;s Easy!</h2>
         <p className="focus-text color-medium">
           Simply create a username and password to get started right away with organizing your projects.
           <br />

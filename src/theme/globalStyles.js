@@ -22,9 +22,29 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-  button {
+  button, [class*="button"] {
     border: none;
     cursor: pointer;
+  }
+
+  form {
+    [type="text"], [type="password"] {
+      border: 2px solid ${(props) => props.theme.color.light};
+      border-radius: 3px;
+      font-family: inherit;
+      width: 100%;
+      outline: none;
+      padding: 10px;
+      transition: border 0.25s;
+      
+      :hover {
+        border-color: ${(props) => props.theme.color.medium}
+      }
+
+      :focus {
+        border-color: ${(props) => props.theme.color.primary}
+      }
+    }
   }
 
   h1,h2,h3,h4,h5,h6 {

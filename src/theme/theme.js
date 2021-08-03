@@ -11,7 +11,7 @@ export default {
     primary: '"Open Sans", sans-serif',
   },
   overlay: {
-    light: 'rgba(255,255,255,0.6',
+    light: 'rgba(255,255,255,0.6)',
     medium: 'rgba(150,150,150,0.6)',
     dark: 'rgba(50,50,50,0.6)',
   },
