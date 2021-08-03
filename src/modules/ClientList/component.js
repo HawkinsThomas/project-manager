@@ -12,9 +12,9 @@ const ClientList = () => {
     <div>
       {isPending && <p>Loading...</p>}
       {clientList && clientList.slice().sort(compare).map((client) => (
-        <div className="row-button text-left" key={client.id}>
+        <button key={client.id} type="button" className="button-wide">
           {`${client.lastName}, ${client.firstName}`}
-        </div>
+        </button>
       ))}
     </div>
   );

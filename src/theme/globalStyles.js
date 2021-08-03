@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   :after {
     font-size: inherit;
     box-sizing: border-box;
-    transition: background-color 0.25s;
+    transition: background-color 0.25s, color 0.25s;
   }
 
   a {
@@ -37,6 +37,8 @@ const GlobalStyle = createGlobalStyle`
   h4 { font-size: 1.2rem; }
   h5 { font-size: 1rem; }
   h6 { font-size: 0.8rem; }
+
+  hr { border: 1px solid ${(props) => props.theme.color.light}; }
 
   img {
     width: 100%;
@@ -66,11 +68,23 @@ const GlobalStyle = createGlobalStyle`
   .button-light {
     color: ${(props) => props.theme.color.medium};
     background-color: ${(props) => props.theme.color.light};
-    transition: color 0.25s;
 
     :hover {
       color: white;
       background-color: ${(props) => props.theme.color.medium};
+    }
+  }
+
+  .button-wide {
+    display: block;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+    text-align: left;
+
+    :hover {
+      color: white;
+      background-color: ${(props) => props.theme.color.primaryLight};
     }
   }
 `;

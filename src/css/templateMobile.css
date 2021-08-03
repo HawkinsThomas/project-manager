@@ -1,7 +1,0 @@
-@media screen and (max-width: 480px) {
-  .row { flex-wrap: wrap; }
-
-  .row [class*="col-sm"] {
-    width: 100%;
-  }
-}

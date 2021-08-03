@@ -7,6 +7,8 @@ import Heading from 'modules/Heading';
 import TaskTable from 'modules/TaskTable';
 import Client from './Client';
 
+import { StyledComponent } from './styledComponent';
+
 
 const Project = () => {
   const { id } = useParams();
@@ -16,30 +18,23 @@ const Project = () => {
   return (
     <div>
       {projectData && (
-        <div>
-          <Heading title={projectData.title} />
-          <div className="row p-main">
-            <div className="col-md-8">
-              <div className="row p-1 mb-2 bg-light">
-                <span className="col-6">{`Progress: ${projectData.status}`}</span>
-                <span className="col-6 text-right">{`Project Started: ${projectData.startTime}`}</span>
-              </div>
-              <div className="pb-1 mb-1 bdb-1 bd-solid bd-light">
-                <h4 className="mt-0">Description</h4>
-                <p>{projectData.description}</p>
-              </div>
-              <div>
-                <h4 className="mt-0">Tasks</h4>
-                <TaskTable projectID={id} />
-              </div>
+        <StyledComponent>
+          <Heading title={projectData.title} className="heading" />
+          <section>
+            <div className="quick-details">
+              <span className="col-6">{`Progress: ${projectData.status}`}</span>
+              <span className="col-6 text-right">{`Project Started: ${projectData.startTime}`}</span>
             </div>
-            <div className="col-md-4">
-              <div className="pl-2 bdl-1 bd-solid bd-light">
-                <Client clientID={projectData.clientID} />
-              </div>
-            </div>
-          </div>
-        </div>
+            <h4 className="mt-0">Description</h4>
+            <p>{projectData.description}</p>
+            <hr />
+            <h4 className="mt-0">Tasks</h4>
+            <TaskTable projectID={id} />
+          </section>
+          <aside>
+            <Client clientID={projectData.clientID} />
+          </aside>
+        </StyledComponent>
       )}
     </div>
   );
