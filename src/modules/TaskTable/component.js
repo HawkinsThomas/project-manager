@@ -6,25 +6,36 @@ import { SERVER } from 'constants.js';
 import useFetch from 'customHooks/useFetch';
 
 // Components
-import Row from './Row';
+import Accordion from 'modules/Accordion';
+
+import { StyledComponent } from './styledComponent';
 
 
 const TaskTable = ({ projectID }) => {
   const { data: rows, isPending, error } = useFetch(`${SERVER}/tasks?projectID=${projectID}`);
 
   return (
-    <div>
+    <StyledComponent>
       { error && <p>{error}</p>}
       { isPending && <p>Loading...</p>}
-      { rows && rows.map((row) => (
-        <Row
-          title={row.title}
-          description={row.description}
-          status={row.status}
-          key={row.id}
-        />
+      {rows && rows.map((row) => (
+        <Accordion title={row.title}>
+          <div className="task-details">
+            <div>
+              <h4>Description</h4>
+              <p>{row.description}</p>
+            </div>
+            <div>
+              <h4>Rate</h4>
+              <p>
+                $
+                {row.rate}
+              </p>
+            </div>
+          </div>
+        </Accordion>
       ))}
-    </div>
+    </StyledComponent>
   );
 };
 

@@ -2,35 +2,51 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 // Components
-import Row from './Row';
+import Accordion from 'modules/Accordion';
+
+import { StyledComponent } from './styledComponent';
 
 
 const ClientTable = () => {
-  const rows = useSelector((state) => state.clients.entities);
+  const clients = useSelector((state) => state.clients.entities);
   const isPending = useSelector((state) => state.clients.loading);
 
   const compare = (a, b) => a.lastName.localeCompare(b.lastName);
 
   return (
-    <div>
+    <StyledComponent>
       { isPending && <p>Loading...</p>}
-      { rows && rows.slice().sort(compare).map((row) => (
-        <Row
-          firstName={row.firstName}
-          lastName={row.lastName}
-          jobTitle={row.jobTitle}
-          phone={row.phone}
-          email={row.email}
-          company={row.company}
-          addressStreet={row.addressStreet}
-          addressCity={row.addressCity}
-          addressPostalCode={row.addressPostalCode}
-          addressProvince={row.addressProvince}
-          addressCountry={row.addressCountry}
-          key={row.id}
-        />
+      {clients && clients.slice().sort(compare).map((client) => (
+        <Accordion title={`${client.lastName}, ${client.firstName} ${client.company}`}>
+          <div className="client-details">
+            <div className="client">
+              <h4>Client Contact</h4>
+              <p>
+                {`${client.firstName} ${client.lastName}`}
+                <br />
+                {client.jobTitle}
+                <br />
+                {`Phone: ${client.phone}`}
+                <br />
+                {`Email: ${client.email}`}
+              </p>
+            </div>
+            <div className="company">
+              <h4>Company Information</h4>
+              <p>
+                {client.company}
+                <br />
+                {client.addressStreet}
+                <br />
+                {`${client.addressCity}, ${client.addressProvince}  ${client.addressPostalCode}`}
+                <br />
+                {client.addressCountry}
+              </p>
+            </div>
+          </div>
+        </Accordion>
       ))}
-    </div>
+    </StyledComponent>
   );
 };
 
