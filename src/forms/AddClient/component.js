@@ -1,18 +1,52 @@
 import React, { useState } from 'react';
+import { PropTypes } from 'prop-types';
+
+import { useDispatch } from 'react-redux';
+import { addClient } from 'commonReducers/clients/clientSlice';
 
 import { StyledForm } from 'forms/styledForm';
 
 
-const AddClientForm = () => {
+const AddClientForm = ({ userID }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [jobTitle, setJobTitle] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [company, setCompany] = useState('');
+  const [addressStreet, setAddressStreet] = useState('');
+  const [addressCity, setAddressCity] = useState('');
+  const [addressProvince, setAddressProvince] = useState('');
+  const [addressPostalCode, setAddressPostalCode] = useState('');
+  const [addressCountry, setAddressCountry] = useState('');
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const data = {
+      userID,
+      firstName,
+      lastName,
+      jobTitle,
+      email,
+      phone,
+      company,
+      addressStreet,
+      addressCity,
+      addressPostalCode,
+      addressProvince,
+      addressCountry,
+    };
+
+    dispatch(addClient(data));
+  };
+
 
   return (
     <StyledForm>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h4>Client Information</h4>
         <b>First Name</b>
         <input
@@ -54,6 +88,55 @@ const AddClientForm = () => {
           onChange={(e) => setPhone(e.target.value)}
           required
         />
+        <h4>Company Information</h4>
+        <b>Company Name</b>
+        <input
+          id="company-name"
+          type="text"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
+          required
+        />
+        <b>Address</b>
+        <input
+          id="street"
+          type="text"
+          value={addressStreet}
+          onChange={(e) => setAddressStreet(e.target.value)}
+          required
+        />
+        <b>City</b>
+        <input
+          id="city"
+          type="text"
+          value={addressCity}
+          onChange={(e) => setAddressCity(e.target.value)}
+          required
+        />
+        <b>Province</b>
+        <input
+          id="province"
+          type="text"
+          value={addressProvince}
+          onChange={(e) => setAddressProvince(e.target.value)}
+          required
+        />
+        <b>Postal Code</b>
+        <input
+          id="postal-code"
+          type="text"
+          value={addressPostalCode}
+          onChange={(e) => setAddressPostalCode(e.target.value)}
+          required
+        />
+        <b>Country</b>
+        <input
+          id="country"
+          type="text"
+          value={addressCountry}
+          onChange={(e) => setAddressCountry(e.target.value)}
+          required
+        />
         <hr />
         <input
           type="submit"
@@ -63,6 +146,10 @@ const AddClientForm = () => {
       </form>
     </StyledForm>
   );
+};
+
+AddClientForm.propTypes = {
+  userID: PropTypes.number.isRequired,
 };
 
 export default AddClientForm;
