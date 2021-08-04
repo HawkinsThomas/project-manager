@@ -22,6 +22,26 @@ const Animations = createGlobalStyle`
     }
   }
 
+  @keyframes slidefromleft {
+    from {
+      left: 100%;
+    }
+    to {
+      left: 0;
+    }
+  }
+
+  @keyframes slidefromright {
+    from {
+      right: 100%;
+    }
+    to {
+      right: 0;
+    }
+  }
+
+  .animated { position: relative; }
+
   .fadein {
     animation: fadein 0.5s;
   }
@@ -30,6 +50,16 @@ const Animations = createGlobalStyle`
     position: relative;
     bottom: 0;
     animation: floatin 0.25s ease-out;
+  }
+
+  .slidefromleft {
+    position: relative;
+    animation: slidefromleft 0.25s ease-out;
+  }
+
+  .slidefromright {
+    position: relative;
+    animation: slidefromright 0.25s ease-out;
   }
 `;
 

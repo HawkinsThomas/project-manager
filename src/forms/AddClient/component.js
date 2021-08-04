@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 
 import { useDispatch } from 'react-redux';
@@ -9,6 +9,7 @@ import { StyledForm } from 'forms/styledForm';
 
 const AddClientForm = ({ userID }) => {
   const [tab, setTab] = useState(0);
+  const [formComplete, setFormComplete] = useState(false);
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -23,6 +24,39 @@ const AddClientForm = ({ userID }) => {
   const [addressCountry, setAddressCountry] = useState('');
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (
+      firstName
+      && lastName
+      && jobTitle
+      && email
+      && phone
+      && company
+      && addressStreet
+      && addressCity
+      && addressProvince
+      && addressPostalCode
+      && addressCountry
+    ) {
+      setFormComplete(true);
+    } else {
+      setFormComplete(false);
+    }
+  },
+  [
+    firstName,
+    lastName,
+    jobTitle,
+    email,
+    phone,
+    company,
+    addressStreet,
+    addressCity,
+    addressProvince,
+    addressPostalCode,
+    addressCountry,
+  ]);
 
   const toggleTab = (value) => {
     setTab(value);
@@ -49,30 +83,12 @@ const AddClientForm = ({ userID }) => {
     dispatch(addClient(data));
   };
 
-
   return (
     <StyledForm>
-      <div className="controls">
-        <button
-          type="button"
-          className="button-light tab-button"
-          onClick={() => toggleTab(0)}
-          disabled={tab === 0}
-        >
-          Client Information
-        </button>
-        <button
-          type="button"
-          className="button-light tab-button"
-          onClick={() => toggleTab(1)}
-          disabled={tab === 1}
-        >
-          Company Information
-        </button>
-      </div>
       <form onSubmit={handleSubmit}>
+        <h4>{!tab ? 'Client Information' : 'Company Information'}</h4>
         {tab === 0 && (
-          <div>
+          <div className="slidefromleft">
             <b>First Name</b>
             <input
               id="name"
@@ -113,10 +129,17 @@ const AddClientForm = ({ userID }) => {
               onChange={(e) => setPhone(e.target.value)}
               required
             />
+            <button
+              type="button"
+              className="button m-auto"
+              onClick={() => toggleTab(1)}
+            >
+              Next
+            </button>
           </div>
         )}
         {tab === 1 && (
-          <div>
+          <div className="slidefromright">
             <b>Company Name</b>
             <input
               id="company-name"
@@ -165,14 +188,23 @@ const AddClientForm = ({ userID }) => {
               onChange={(e) => setAddressCountry(e.target.value)}
               required
             />
+            <button
+              type="button"
+              className="button m-auto"
+              onClick={() => toggleTab(0)}
+            >
+              Previous
+            </button>
           </div>
         )}
         <hr />
-        <input
+        <button
           type="submit"
-          value="Add Client"
           className="button"
-        />
+          disabled={!formComplete}
+        >
+          Add Client
+        </button>
       </form>
     </StyledForm>
   );

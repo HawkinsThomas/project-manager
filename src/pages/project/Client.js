@@ -36,7 +36,7 @@ const Client = ({ clientID }) => {
               <br />
               {`${client.addressCountry}`}
             </p>
-            <Link to="/dashboard" className="link-color">Edit Contact Details</Link>
+            <Link to="/dashboard" className="button-light">Edit Contact Details</Link>
           </div>
         </div>
       )}
