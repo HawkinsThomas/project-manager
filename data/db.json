@@ -67,6 +67,20 @@
       "addressProvince": "H",
       "addressCountry": "None",
       "id": 4
+    },
+    {
+      "firstName": "Johnathan",
+      "lastName": "LeBlanc",
+      "jobTitle": "Designer",
+      "email": "john.leblanc03@gmail.com",
+      "phone": "6134498060",
+      "company": "a",
+      "addressStreet": "59 Coventry Crescent",
+      "addressCity": "Kingston",
+      "addressPostalCode": "K7M 7S8",
+      "addressProvince": "Ontario",
+      "addressCountry": "Canada",
+      "id": 5
     }
   ],
   "projects": [
